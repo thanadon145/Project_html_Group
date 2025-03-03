@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>คู่มือ HTML เบื้องต้น</title>
+  <style>
+    /*สไตล์สำหรับจัดรูปแบบเนื้อหาในคู่มือ */
+    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+    pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
+    code { font-family: Consolas, monospace; }
+    h2 { color: #333; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
+    section { margin-bottom: 30px; }
+  </style>
+</head>
+<body>
+  <h1>คู่มือ HTML เบื้องต้น</h1>
+
+  <!-- 1. Tag พื้นฐาน -->
+  <section>
+    <h2>1. Tag พื้นฐาน</h2>
+    <p>แท็ก HTML คือคำสั่งที่อยู่ในวงเล็บมุม (<code>&lt; &gt;</code>) เพื่อกำหนดโครงสร้างของเอกสาร เช่น <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code></p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;ตัวอย่าง HTML&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;สวัสดีโลก!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </section>
+
+  <!-- 2. Attribute -->
+  <section>
+    <h2>2. Attribute</h2>
+    <p>Attribute คือคุณสมบัติเพิ่มเติมในแท็ก HTML เช่น <code>id</code>, <code>class</code>, และ <code>style</code></p>
+    <pre><code>&lt;h1 id="main-title"&gt;หัวข้อหลัก&lt;/h1&gt;
+&lt;p class="highlight"&gt;ย่อหน้าที่มีการไฮไลท์&lt;/p&gt;
+&lt;p style="color: blue;"&gt;ย่อหน้าสีน้ำเงิน&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 3. โครงสร้าง HTML พื้นฐาน -->
+  <section>
+    <h2>3. โครงสร้าง HTML พื้นฐาน</h2>
+    <p>โครงสร้างเอกสาร HTML ควรประกอบด้วยการประกาศ DOCTYPE และแบ่งเป็นส่วน <code>&lt;head&gt;</code> และ <code>&lt;body&gt;</code></p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;หน้าเว็บของฉัน&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;สวัสดี&lt;/h1&gt;
+    &lt;p&gt;ยินดีต้อนรับสู่เว็บเพจของฉัน!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  </section>
+
+  <!-- 4. ฟอร์มและปุ่ม -->
+  <section>
+    <h2>4. ฟอร์มและปุ่ม</h2>
+    <p>ฟอร์มใช้สำหรับรับข้อมูลจากผู้ใช้ สร้างด้วยแท็ก <code>&lt;form&gt;</code> และองค์ประกอบเช่น <code>&lt;input&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;label&gt;</code></p>
+    <pre><code>&lt;form action="#" method="POST"&gt;
+  &lt;label for="username"&gt;ชื่อผู้ใช้:&lt;/label&gt;
+  &lt;input type="text" id="username" name="username"&gt;
+  &lt;br&gt;&lt;br&gt;
+  &lt;label for="password"&gt;รหัสผ่าน:&lt;/label&gt;
+  &lt;input type="password" id="password" name="password"&gt;
+  &lt;br&gt;&lt;br&gt;
+  &lt;button type="submit"&gt;ลงทะเบียน&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+  </section>
+
+  <!-- 5. ลิงก์และรูปภาพ -->
+  <section>
+    <h2>5. ลิงก์และรูปภาพ</h2>
+    <p>ลิงก์สร้างด้วยแท็ก <code>&lt;a&gt;</code> โดยระบุ URL ใน attribute <code>href</code> ส่วนรูปภาพสร้างด้วยแท็ก <code>&lt;img&gt;</code> โดยต้องระบุ <code>src</code> และ <code>alt</code></p>
+    <pre><code>&lt;a href="https://www.example.com" target="_blank"&gt;ไปที่ Example.com&lt;/a&gt;
+&lt;img src="picture.jpg" alt="คำอธิบายรูปภาพ" width="200"&gt;</code></pre>
+  </section>
+
+  <!-- 6. ตารางและรายการ -->
+  <section>
+    <h2>6. ตารางและรายการ</h2>
+    <p>ตารางสร้างด้วยแท็ก <code>&lt;table&gt;</code> พร้อมกับ <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, และ <code>&lt;td&gt;</code> ส่วนรายการสร้างด้วย <code>&lt;ol&gt;</code> (รายการมีลำดับ) หรือ <code>&lt;ul&gt;</code> (รายการไม่มีลำดับ) โดยใช้ <code>&lt;li&gt;</code> สำหรับแต่ละรายการ</p>
+    <pre><code>&lt;table border="1"&gt;
+  &lt;tr&gt;
+    &lt;th&gt;ชื่อ&lt;/th&gt;
+    &lt;th&gt;อายุ&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;สมชาย&lt;/td&gt;
+    &lt;td&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;แอปเปิ้ล&lt;/li&gt;
+  &lt;li&gt;กล้วย&lt;/li&gt;
+  &lt;li&gt;เชอร์รี่&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;สุนัข&lt;/li&gt;
+  &lt;li&gt;แมว&lt;/li&gt;
+  &lt;li&gt;นก&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+  </section>
+
+</body>
+</html>
