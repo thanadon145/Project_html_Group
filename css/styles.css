@@ -8,13 +8,24 @@ body {
     overflow: hidden;
 }
 
-.buttons {
+.center-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
     align-items: center;
     justify-content: center;
     height: 100vh;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
 }
 
 .btn {
@@ -23,33 +34,57 @@ body {
     padding: 12px 24px;
     font-size: 18px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     border: 2px solid white;
-    display: inline-block;
+    min-width: 150px;
     text-align: center;
-    min-width: 120px;
-    transition: background 0.3s ease, color 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
-    background: black;
-    color: white;
+    background: white;
+    color: black;
+    transform: scale(1.05);
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+.dropdown .btn {
+    width: 100%;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 40px;
-    left: 0;
-    background: rgba(50, 50, 50, 0.8);
-    border-radius: 5px;
-    overflow: hidden;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(50, 50, 50, 0.9);
+    border-radius: 8px;
+    min-width: 160px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    text-align: left;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffcc00;
 }
 
 .dropdown:hover .dropdown-content {
@@ -84,14 +119,4 @@ body {
         transform: translate(800px, 800px);
         opacity: 0;
     }
-}
-
-h1 {
-    position: absolute;
-    top: 37%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 28px;
-    text-align: center;
-    width: 100%;
 }
