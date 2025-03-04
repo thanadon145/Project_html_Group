@@ -21,12 +21,17 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-document.querySelector('.member-card').addEventListener('mouseover', function() {
-    this.querySelector('.member-image').src = './img/ryu.png';
-});
+document.querySelectorAll('.member-card').forEach((card, index) => {
+    const images = ["1.png", "./img/ryu.png", "./img/byte.png"];
+    const hoverImages = ["./img/1671951579885.png", "./img/1671951652564.png", "./img/1671951672461.png"];
 
-document.querySelector('.member-card').addEventListener('mouseout', function() {
-    this.querySelector('.member-image').src = './img/byte.png';
+    card.addEventListener('mouseover', function() {
+        this.querySelector('.member-image').src = hoverImages[index];
+    });
+
+    card.addEventListener('mouseout', function() {
+        this.querySelector('.member-image').src = images[index];
+    });
 });
 
 function showInfo(cardNumber) {
