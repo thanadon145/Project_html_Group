@@ -22,11 +22,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 document.querySelector('.member-card').addEventListener('mouseover', function() {
-    this.querySelector('.member-image').src = '2.png';
+    this.querySelector('.member-image').src = './img/ryu.png';
 });
 
 document.querySelector('.member-card').addEventListener('mouseout', function() {
-    this.querySelector('.member-image').src = '1.png';
+    this.querySelector('.member-image').src = './img/byte.png';
 });
 
 function showInfo(cardNumber) {
@@ -43,3 +43,16 @@ function showInfo(cardNumber) {
         }
     });
 }
+
+function resetCards() {
+    const cards = document.querySelectorAll('.member-card');
+    cards.forEach(card => {
+        card.style.width = '30%';
+        card.style.opacity = '1';
+        card.querySelector('.member-info').style.display = 'none';
+    });
+}
+
+document.querySelectorAll('.member-card').forEach(card => {
+    card.addEventListener('mouseout', resetCards);
+});

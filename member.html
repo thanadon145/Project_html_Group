@@ -13,24 +13,27 @@
     <h1> Group Member</h1>
 
     <div class="member-container">
-        <div class="member-card" onmouseover="showInfo(1)">
+        <div class="member-card" onmouseover="showInfo(1)" onmouseout="resetCards()">
             <img src="1.png" alt="Member 1" class="member-image">
+            <div class="nickname">John</div> <!-- เพิ่มชื่อเล่น -->
             <div class="member-info" id="info1">
                 <p>Fullname: <span class="fullname">John Doe</span></p>
                 <p>Student ID: <span class="student-id">123456</span></p>
                 <p>Email: <span class="email">john.doe@example.com</span></p>
             </div>
         </div>
-        <div class="member-card" onmouseover="showInfo(2)">
+        <div class="member-card" onmouseover="showInfo(2)" onmouseout="resetCards()">
             <img src="2.png" alt="Member 2" class="member-image">
+            <div class="nickname">Jane</div> <!-- เพิ่มชื่อเล่น -->
             <div class="member-info" id="info2">
                 <p>Fullname: <span class="fullname">Jane Smith</span></p>
                 <p>Student ID: <span class="student-id">654321</span></p>
                 <p>Email: <span class="email">jane.smith@example.com</span></p>
             </div>
         </div>
-        <div class="member-card" onmouseover="showInfo(3)">
+        <div class="member-card" onmouseover="showInfo(3)" onmouseout="resetCards()">
             <img src="3.png" alt="Member 3" class="member-image">
+            <div class="nickname">Alice</div> <!-- เพิ่มชื่อเล่น -->
             <div class="member-info" id="info3">
                 <p>Fullname: <span class="fullname">Alice Johnson</span></p>
                 <p>Student ID: <span class="student-id">987654</span></p>
@@ -38,7 +41,7 @@
             </div>
         </div>
     </div>
-
+    
     <script src="./js/script.js"></script>
 </body>
 </html>
