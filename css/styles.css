@@ -194,5 +194,17 @@ h1 {
 
 img {
     width: 500px;
-    height: 500px;
-}
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      width: 300px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    img {
+      width: 200px;
+    }
+  }
