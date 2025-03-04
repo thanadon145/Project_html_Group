@@ -120,3 +120,46 @@ h1 {
         opacity: 0;
     }
 }
+
+
+.member-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.member-card {
+    position: relative;
+    width: 30%;
+    text-align: center;
+    transition: width 0.5s, opacity 0.5s;
+}
+
+.member-info {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.member-card:hover {
+    width: 60%;
+}
+
+.member-card:hover .member-info {
+    display: block;
+}
+
+.member-card:not(:hover) {
+    opacity: 0.5;
+    width: 20%;
+}
