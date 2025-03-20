@@ -3,87 +3,279 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>คู่มือ HTML เบื้องต้น</title>
+  <title>HTML Tutorial</title>
   <style>
-    /*สไตล์สำหรับจัดรูปแบบเนื้อหาในคู่มือ */
-    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
-    pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
-    code { font-family: Consolas, monospace; }
-    h2 { color: #333; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-    section { margin-bottom: 30px; }
+    /* สไตล์พื้นฐานสำหรับการแสดงผล */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+    nav {
+      background: #2d3e50;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 15px;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    h1 {
+      margin-top: 0;
+    }
+    section {
+      margin-bottom: 30px;
+    }
+    h2 {
+      color: #333;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+    code {
+      font-family: Consolas, monospace;
+      color: #d14;
+    }
   </style>
 </head>
 <body>
-  <h1>คู่มือ HTML เบื้องต้น</h1>
 
-  <!-- 1. Tag พื้นฐาน -->
-  <section>
-    <h2>1. Tag พื้นฐาน</h2>
-    <p>แท็ก HTML คือคำสั่งที่อยู่ในวงเล็บมุม (<code>&lt; &gt;</code>) เพื่อกำหนดโครงสร้างของเอกสาร เช่น <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code></p>
+  <!-- แถบนำทาง -->
+  <nav>
+    <a href="#home">HOME</a>
+    <a href="#introduction">Introduction</a>
+    <a href="#editors">Editors</a>
+    <a href="#basic">Basic</a>
+    <a href="#elements">Elements</a>
+    <a href="#attributes">Attributes</a>
+    <a href="#headings">Headings</a>
+    <a href="#paragraphs">Paragraphs</a>
+    <a href="#styles">Styles</a>
+    <a href="#formatting">Formatting</a>
+    <a href="#quotation">Quotation</a>
+    <a href="#comments">Comments</a>
+    <a href="#colors">Colors</a>
+    <a href="#fonts">HTML Fonts</a>
+    <a href="#links">Links</a>
+    <a href="#images">Images</a>
+    <a href="#favicon">Favicon</a>
+    <a href="#page-title">Page Title</a>
+    <a href="#tables-inline">Tables & Inline</a>
+    <a href="#lists">Lists</a>
+    <a href="#block-inline">Block & Inline</a>
+    <a href="#div">Div</a>
+    <a href="#classes">Classes</a>
+    <a href="#id">Id</a>
+    <a href="#iframes">Iframes</a>
+    <a href="#javascript">JavaScript</a>
+    <a href="#file-paths">File Paths</a>
+    <a href="#head">Head</a>
+    <a href="#layout">Layout</a>
+    <a href="#responsive">Responsive</a>
+    <a href="#computercode">ComputerCode</a>
+    <a href="#semantics">Semantics</a>
+    <a href="#style-guide">Style Guide</a>
+    <a href="#entities">Entities</a>
+    <a href="#symbols">Symbols</a>
+    <a href="#emojis">Emojis</a>
+    <a href="#charsets">Charsets</a>
+    <a href="#url-encode">URL Encode</a>
+  </nav>
+
+  <h1>HTML Tutorial</h1>
+
+  <!-- 1. HOME -->
+  <section id="home">
+    <h2>HTML HOME</h2>
+    <p>หน้านี้เป็นจุดเริ่มต้นสำหรับผู้ที่สนใจศึกษาเกี่ยวกับ HTML (HyperText Markup Language) ซึ่งเป็นภาษาหลักในการสร้างโครงสร้างของเว็บเพจ</p>
     <pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;ตัวอย่าง HTML&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;สวัสดีโลก!&lt;/p&gt;
-  &lt;/body&gt;
+&lt;head&gt;
+  &lt;title&gt;ตัวอย่างโครงสร้าง HTML&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;สวัสดี HTML&lt;/h1&gt;
+  &lt;p&gt;นี่คือหน้าเว็บตัวอย่าง&lt;/p&gt;
+&lt;/body&gt;
 &lt;/html&gt;</code></pre>
   </section>
 
-  <!-- 2. Attribute -->
-  <section>
-    <h2>2. Attribute</h2>
-    <p>Attribute คือคุณสมบัติเพิ่มเติมในแท็ก HTML เช่น <code>id</code>, <code>class</code>, และ <code>style</code></p>
-    <pre><code>&lt;h1 id="main-title"&gt;หัวข้อหลัก&lt;/h1&gt;
-&lt;p class="highlight"&gt;ย่อหน้าที่มีการไฮไลท์&lt;/p&gt;
-&lt;p style="color: blue;"&gt;ย่อหน้าสีน้ำเงิน&lt;/p&gt;</code></pre>
-  </section>
-
-  <!-- 3. โครงสร้าง HTML พื้นฐาน -->
-  <section>
-    <h2>3. โครงสร้าง HTML พื้นฐาน</h2>
-    <p>โครงสร้างเอกสาร HTML ควรประกอบด้วยการประกาศ DOCTYPE และแบ่งเป็นส่วน <code>&lt;head&gt;</code> และ <code>&lt;body&gt;</code></p>
+  <!-- 2. Introduction -->
+  <section id="introduction">
+    <h2>Introduction</h2>
+    <p>HTML คือภาษาที่ใช้กำหนดโครงสร้างของเว็บเพจ ประกอบด้วยแท็ก (Tag) ต่าง ๆ เพื่อบอกเบราว์เซอร์ว่าข้อมูลแต่ละส่วนคืออะไร เช่น ย่อหน้า รูปภาพ หัวข้อ ตาราง ฯลฯ</p>
     <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;title&gt;หน้าเว็บของฉัน&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;สวัสดี&lt;/h1&gt;
-    &lt;p&gt;ยินดีต้อนรับสู่เว็บเพจของฉัน!&lt;/p&gt;
-  &lt;/body&gt;
+&lt;html lang="th"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;แนะนำ HTML&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h2&gt;HTML คืออะไร?&lt;/h2&gt;
+  &lt;p&gt;HTML ย่อมาจาก HyperText Markup Language...&lt;/p&gt;
+&lt;/body&gt;
 &lt;/html&gt;</code></pre>
   </section>
 
-  <!-- 4. ฟอร์มและปุ่ม -->
-  <section>
-    <h2>4. ฟอร์มและปุ่ม</h2>
-    <p>ฟอร์มใช้สำหรับรับข้อมูลจากผู้ใช้ สร้างด้วยแท็ก <code>&lt;form&gt;</code> และองค์ประกอบเช่น <code>&lt;input&gt;</code>, <code>&lt;button&gt;</code>, <code>&lt;label&gt;</code></p>
-    <pre><code>&lt;form action="#" method="POST"&gt;
-  &lt;label for="username"&gt;ชื่อผู้ใช้:&lt;/label&gt;
-  &lt;input type="text" id="username" name="username"&gt;
-  &lt;br&gt;&lt;br&gt;
-  &lt;label for="password"&gt;รหัสผ่าน:&lt;/label&gt;
-  &lt;input type="password" id="password" name="password"&gt;
-  &lt;br&gt;&lt;br&gt;
-  &lt;button type="submit"&gt;ลงทะเบียน&lt;/button&gt;
-&lt;/form&gt;</code></pre>
+  <!-- 3. Editors -->
+  <section id="editors">
+    <h2>Editors</h2>
+    <p>สามารถเขียน HTML ได้ด้วยโปรแกรมแก้ไขข้อความหลากหลาย เช่น Notepad, Visual Studio Code, Sublime Text, Atom เป็นต้น</p>
   </section>
 
-  <!-- 5. ลิงก์และรูปภาพ -->
-  <section>
-    <h2>5. ลิงก์และรูปภาพ</h2>
-    <p>ลิงก์สร้างด้วยแท็ก <code>&lt;a&gt;</code> โดยระบุ URL ใน attribute <code>href</code> ส่วนรูปภาพสร้างด้วยแท็ก <code>&lt;img&gt;</code> โดยต้องระบุ <code>src</code> และ <code>alt</code></p>
-    <pre><code>&lt;a href="https://www.example.com" target="_blank"&gt;ไปที่ Example.com&lt;/a&gt;
-&lt;img src="picture.jpg" alt="คำอธิบายรูปภาพ" width="200"&gt;</code></pre>
+  <!-- 4. Basic -->
+  <section id="basic">
+    <h2>Basic</h2>
+    <p>โครงสร้างพื้นฐานของ HTML ประกอบด้วยการประกาศ <code>&lt;!DOCTYPE html&gt;</code> และแท็กหลัก <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code></p>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;หน้าเว็บพื้นฐาน&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;สวัสดีโลก!&lt;/h1&gt;
+  &lt;p&gt;นี่คือหน้าเว็บ HTML แบบพื้นฐาน&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
   </section>
 
-  <!-- 6. ตารางและรายการ -->
-  <section>
-    <h2>6. ตารางและรายการ</h2>
-    <p>ตารางสร้างด้วยแท็ก <code>&lt;table&gt;</code> พร้อมกับ <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, และ <code>&lt;td&gt;</code> ส่วนรายการสร้างด้วย <code>&lt;ol&gt;</code> (รายการมีลำดับ) หรือ <code>&lt;ul&gt;</code> (รายการไม่มีลำดับ) โดยใช้ <code>&lt;li&gt;</code> สำหรับแต่ละรายการ</p>
+  <!-- 5. Elements -->
+  <section id="elements">
+    <h2>Elements</h2>
+    <p>Element คือส่วนประกอบใน HTML ที่ประกอบด้วยแท็กเปิด, เนื้อหา, และแท็กปิด เช่น <code>&lt;p&gt;ข้อความ&lt;/p&gt;</code></p>
+    <pre><code>&lt;h2&gt;หัวข้อ&lt;/h2&gt;
+&lt;p&gt;ย่อหน้าแรก&lt;/p&gt;
+&lt;p&gt;ย่อหน้าที่สอง&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 6. Attributes -->
+  <section id="attributes">
+    <h2>Attributes</h2>
+    <p>Attribute คือคุณสมบัติที่เพิ่มให้กับแท็ก เช่น <code>id</code>, <code>class</code>, <code>style</code>, <code>href</code>, <code>src</code> ฯลฯ</p>
+    <pre><code>&lt;h1 id="main-title"&gt;นี่คือหัวเรื่องหลัก&lt;/h1&gt;
+&lt;p class="highlight"&gt;ข้อความนี้มีคลาสชื่อ highlight&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 7. Headings -->
+  <section id="headings">
+    <h2>Headings</h2>
+    <p>แท็กหัวเรื่องใน HTML มีตั้งแต่ <code>&lt;h1&gt;</code> (ใหญ่ที่สุด) ถึง <code>&lt;h6&gt;</code> (เล็กที่สุด) เพื่อจัดลำดับความสำคัญของหัวข้อ</p>
+    <pre><code>&lt;h1&gt;หัวข้อหลัก&lt;/h1&gt;
+&lt;h2&gt;หัวข้อรอง&lt;/h2&gt;
+&lt;h3&gt;หัวข้อย่อย&lt;/h3&gt;
+&lt;h4&gt;หัวข้อย่อยเพิ่มเติม&lt;/h4&gt;</code></pre>
+  </section>
+
+  <!-- 8. Paragraphs -->
+  <section id="paragraphs">
+    <h2>Paragraphs</h2>
+    <p>ย่อหน้าใน HTML ใช้แท็ก <code>&lt;p&gt;</code> เพื่อแบ่งข้อความเป็นบรรทัด/ย่อหน้าอย่างชัดเจน</p>
+    <pre><code>&lt;p&gt;นี่คือย่อหน้าแรก&lt;/p&gt;
+&lt;p&gt;นี่คือย่อหน้าที่สอง&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 9. Styles -->
+  <section id="styles">
+    <h2>Styles</h2>
+    <p>สามารถกำหนดสไตล์แบบอินไลน์ด้วย Attribute <code>style</code> หรือเชื่อมต่อไฟล์ CSS ภายนอก</p>
+    <pre><code>&lt;p style="color: blue;"&gt;ข้อความสีน้ำเงิน&lt;/p&gt;
+&lt;!-- หรือเชื่อมต่อไฟล์ CSS --&gt;
+&lt;link rel="stylesheet" href="styles.css"&gt;</code></pre>
+  </section>
+
+  <!-- 10. Formatting -->
+  <section id="formatting">
+    <h2>Formatting</h2>
+    <p>การจัดรูปแบบข้อความด้วยแท็ก เช่น <code>&lt;b&gt;</code> (ตัวหนา), <code>&lt;i&gt;</code> (ตัวเอียง), <code>&lt;u&gt;</code> (ขีดเส้นใต้), <code>&lt;mark&gt;</code> (ไฮไลท์)</p>
+    <pre><code>&lt;p&gt;นี่คือ &lt;b&gt;ข้อความตัวหนา&lt;/b&gt; และ &lt;i&gt;ข้อความตัวเอียง&lt;/i&gt;&lt;/p&gt;
+&lt;p&gt;นี่คือ &lt;mark&gt;ข้อความที่ถูกไฮไลท์&lt;/mark&gt;&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 11. Quotation -->
+  <section id="quotation">
+    <h2>Quotation</h2>
+    <p>การอ้างอิงข้อความด้วย <code>&lt;blockquote&gt;</code> (ย่อหน้าสำหรับการอ้างอิงยาว ๆ) และ <code>&lt;q&gt;</code> (อ้างอิงสั้น ๆ)</p>
+    <pre><code>&lt;blockquote&gt;
+  นี่คือข้อความที่ถูกอ้างอิงแบบยาว
+&lt;/blockquote&gt;
+
+&lt;p&gt;นี่คือข้อความอ้างอิงสั้น ๆ: &lt;q&gt;Hello&lt;/q&gt;&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 12. Comments -->
+  <section id="comments">
+    <h2>Comments</h2>
+    <p>การใส่คอมเมนต์ใน HTML ใช้ <code>&lt;!-- --&gt;</code> เบราว์เซอร์จะไม่แสดงผลคอมเมนต์บนหน้าเว็บ</p>
+    <pre><code>&lt;!-- นี่คือคอมเมนต์ --&gt;
+&lt;p&gt;ข้อความนี้จะแสดงผล&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 13. Colors -->
+  <section id="colors">
+    <h2>Colors</h2>
+    <p>การกำหนดสีให้กับข้อความหรือพื้นหลัง (ส่วนใหญ่ทำผ่าน CSS) เช่น ใช้ชื่อสี, รหัสสี Hex, หรือ RGB</p>
+    <pre><code>&lt;p style="color: red;"&gt;ข้อความสีแดง&lt;/p&gt;
+&lt;p style="background-color: #00ff00;"&gt;พื้นหลังสีเขียว&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 14. HTML Fonts -->
+  <section id="fonts">
+    <h2>HTML Fonts</h2>
+    <p>เดิมเคยมีแท็ก <code>&lt;font&gt;</code> สำหรับกำหนดฟอนต์ แต่ปัจจุบันแนะนำให้ใช้ CSS (เช่น <code>font-family</code>, <code>font-size</code>)</p>
+    <pre><code>&lt;p style="font-family: Arial; font-size: 18px;"&gt;
+  ข้อความด้วยฟอนต์ Arial ขนาด 18px
+&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 15. Links -->
+  <section id="links">
+    <h2>Links</h2>
+    <p>การสร้างลิงก์ใช้แท็ก <code>&lt;a&gt;</code> โดยกำหนด URL ใน <code>href</code></p>
+    <pre><code>&lt;a href="https://www.example.com" target="_blank"&gt;
+  ไปยัง Example.com
+&lt;/a&gt;</code></pre>
+  </section>
+
+  <!-- 16. Images -->
+  <section id="images">
+    <h2>Images</h2>
+    <p>การแทรกรูปภาพใช้แท็ก <code>&lt;img&gt;</code> และระบุแหล่งรูป (src) รวมถึงข้อความสำรอง (alt)</p>
+    <pre><code>&lt;img src="picture.jpg" alt="รูปภาพตัวอย่าง" width="200" height="150"&gt;</code></pre>
+  </section>
+
+  <!-- 17. Favicon -->
+  <section id="favicon">
+    <h2>Favicon</h2>
+    <p>การเพิ่มไอคอน (Favicon) บนแท็บเบราว์เซอร์ ใช้แท็ก <code>&lt;link rel="icon" ... &gt;</code> ในส่วน <code>&lt;head&gt;</code></p>
+    <pre><code>&lt;head&gt;
+  &lt;link rel="icon" type="image/png" href="favicon.png"&gt;
+&lt;/head&gt;</code></pre>
+  </section>
+
+  <!-- 18. Page Title -->
+  <section id="page-title">
+    <h2>Page Title</h2>
+    <p>กำหนดชื่อหน้าเว็บด้วยแท็ก <code>&lt;title&gt;</code> ภายใน <code>&lt;head&gt;</code></p>
+    <pre><code>&lt;head&gt;
+  &lt;title&gt;ชื่อหน้าเว็บ&lt;/title&gt;
+&lt;/head&gt;</code></pre>
+  </section>
+
+  <!-- 19. Tables & Inline -->
+  <section id="tables-inline">
+    <h2>Tables & Inline</h2>
+    <p>ตารางใน HTML ใช้ <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;td&gt;</code> และเรียนรู้ความแตกต่าง Block กับ Inline เช่น <code>&lt;span&gt;</code> (inline) และ <code>&lt;div&gt;</code> (block)</p>
     <pre><code>&lt;table border="1"&gt;
   &lt;tr&gt;
     &lt;th&gt;ชื่อ&lt;/th&gt;
@@ -95,17 +287,202 @@
   &lt;/tr&gt;
 &lt;/table&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;แอปเปิ้ล&lt;/li&gt;
-  &lt;li&gt;กล้วย&lt;/li&gt;
-  &lt;li&gt;เชอร์รี่&lt;/li&gt;
-&lt;/ol&gt;
+&lt;div&gt;นี่คือ block element&lt;/div&gt;
+&lt;span&gt;นี่คือ inline element&lt;/span&gt;</code></pre>
+  </section>
 
-&lt;ul&gt;
-  &lt;li&gt;สุนัข&lt;/li&gt;
-  &lt;li&gt;แมว&lt;/li&gt;
-  &lt;li&gt;นก&lt;/li&gt;
-&lt;/ul&gt;</code></pre>
+  <!-- 20. Lists -->
+  <section id="lists">
+    <h2>Lists</h2>
+    <p>การสร้างรายการแบบไม่มีลำดับ (ul) และมีลำดับ (ol) ใช้ <code>&lt;li&gt;</code> สำหรับแต่ละรายการ</p>
+    <pre><code>&lt;ul&gt;
+  &lt;li&gt;รายการที่ 1&lt;/li&gt;
+  &lt;li&gt;รายการที่ 2&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;รายการที่ 1&lt;/li&gt;
+  &lt;li&gt;รายการที่ 2&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+  </section>
+
+  <!-- 21. Block & Inline -->
+  <section id="block-inline">
+    <h2>Block & Inline</h2>
+    <p>Block elements (เช่น <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>) จองพื้นที่เต็มบรรทัด ส่วน Inline elements (เช่น <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>) จองพื้นที่ตามขนาดเนื้อหา</p>
+    <pre><code>&lt;div&gt;Block element&lt;/div&gt;
+ข้อความปกติ &lt;span&gt;Inline element&lt;/span&gt; ข้อความปกติ
+</code></pre>
+  </section>
+
+  <!-- 22. Div -->
+  <section id="div">
+    <h2>Div</h2>
+    <p><code>&lt;div&gt;</code> ใช้สำหรับจัดกลุ่มหรือแบ่งส่วนต่าง ๆ ในหน้า เพื่อความเป็นระเบียบและสะดวกต่อการจัดสไตล์ด้วย CSS</p>
+    <pre><code>&lt;div&gt;
+  &lt;h2&gt;ส่วนหัวข้อใน div&lt;/h2&gt;
+  &lt;p&gt;เนื้อหาใน div&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <!-- 23. Classes -->
+  <section id="classes">
+    <h2>Classes</h2>
+    <p>กำหนดคลาสด้วย <code>class</code> attribute เพื่อใช้จัดสไตล์หรืออ้างอิงผ่าน JavaScript ได้</p>
+    <pre><code>&lt;div class="container"&gt;
+  &lt;p class="highlight"&gt;ข้อความไฮไลท์&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <!-- 24. Id -->
+  <section id="id">
+    <h2>Id</h2>
+    <p>กำหนด id เพื่อระบุองค์ประกอบเพียงหนึ่งเดียวในหน้า (ต้องไม่ซ้ำกัน) เช่น <code>id=&quot;main&quot;</code></p>
+    <pre><code>&lt;h1 id="page-title"&gt;หัวข้อหลัก&lt;/h1&gt;
+&lt;div id="content"&gt;เนื้อหา...&lt;/div&gt;</code></pre>
+  </section>
+
+  <!-- 25. Iframes -->
+  <section id="iframes">
+    <h2>Iframes</h2>
+    <p><code>&lt;iframe&gt;</code> ใช้ฝังหน้าเว็บหรือวิดีโอจากเว็บอื่น (เช่น YouTube) ลงในหน้าเว็บของเรา</p>
+    <pre><code>&lt;iframe width="560" height="315"
+  src="https://www.youtube.com/embed/XXXXXXXX"
+  frameborder="0"
+  allowfullscreen&gt;
+&lt;/iframe&gt;</code></pre>
+  </section>
+
+  <!-- 26. JavaScript -->
+  <section id="javascript">
+    <h2>JavaScript</h2>
+    <p>สามารถฝัง JavaScript ใน HTML เพื่อเพิ่มความโต้ตอบ (Interactive) ให้กับหน้าเว็บ เช่น การตรวจสอบฟอร์มหรือแสดง/ซ่อนเนื้อหา</p>
+    <pre><code>&lt;script&gt;
+  alert('สวัสดี JavaScript!');
+&lt;/script&gt;</code></pre>
+  </section>
+
+  <!-- 27. File Paths -->
+  <section id="file-paths">
+    <h2>File Paths</h2>
+    <p>การอ้างอิงไฟล์ด้วย Relative Path หรือ Absolute Path เพื่อเชื่อมโยงรูปภาพ ไฟล์ CSS/JS ภายในโปรเจค</p>
+    <pre><code>&lt;!-- Relative Path --&gt;
+&lt;img src="images/pic.jpg" alt="รูปภาพ"&gt;
+
+&lt;!-- Absolute Path --&gt;
+&lt;img src="https://www.example.com/images/pic.jpg" alt="รูปภาพ"&gt;</code></pre>
+  </section>
+
+  <!-- 28. Head -->
+  <section id="head">
+    <h2>Head</h2>
+    <p>ส่วน <code>&lt;head&gt;</code> ใช้ใส่ข้อมูลเกี่ยวกับเอกสาร เช่น <code>&lt;title&gt;</code>, <code>&lt;meta&gt;</code>, <code>&lt;link&gt;</code>, <code>&lt;script&gt;</code> (กรณีแทรกไฟล์ JS)</p>
+    <pre><code>&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;ตัวอย่าง Head&lt;/title&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;</code></pre>
+  </section>
+
+  <!-- 29. Layout -->
+  <section id="layout">
+    <h2>Layout</h2>
+    <p>การจัดโครงร่างหน้าเว็บ (Layout) มักใช้ <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code> เพื่อความชัดเจน</p>
+    <pre><code>&lt;header&gt;ส่วนหัวเว็บ&lt;/header&gt;
+&lt;nav&gt;เมนูนำทาง&lt;/nav&gt;
+&lt;section&gt;เนื้อหาหลัก&lt;/section&gt;
+&lt;aside&gt;เนื้อหาข้างเคียง&lt;/aside&gt;
+&lt;footer&gt;ส่วนท้ายเว็บ&lt;/footer&gt;</code></pre>
+  </section>
+
+  <!-- 30. Responsive -->
+  <section id="responsive">
+    <h2>Responsive</h2>
+    <p>การทำเว็บให้แสดงผลสวยงามบนหน้าจอหลายขนาด ใช้ <code>meta viewport</code> และ Media Queries ใน CSS</p>
+    <pre><code>&lt;head&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;/head&gt;
+
+&lt;!-- ตัวอย่าง Media Query ใน CSS --&gt;
+@media (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+</code></pre>
+  </section>
+
+  <!-- 31. ComputerCode -->
+  <section id="computercode">
+    <h2>ComputerCode</h2>
+    <p>แท็กสำหรับแสดงโค้ดหรือข้อความที่เกี่ยวกับคอมพิวเตอร์ เช่น <code>&lt;code&gt;</code>, <code>&lt;pre&gt;</code>, <code>&lt;kbd&gt;</code>, <code>&lt;samp&gt;</code></p>
+    <pre><code>&lt;p&gt;ตัวอย่างโค้ด: &lt;code&gt;console.log('Hello')&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;
+function greet() {
+  console.log("Hello World");
+}
+&lt;/pre&gt;</code></pre>
+  </section>
+
+  <!-- 32. Semantics -->
+  <section id="semantics">
+    <h2>Semantics</h2>
+    <p>แท็กเชิงความหมาย (Semantic Tags) เช่น <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;nav&gt;</code> ช่วยให้โครงสร้างเว็บชัดเจนขึ้น</p>
+    <pre><code>&lt;article&gt;
+  &lt;h2&gt;บทความ&lt;/h2&gt;
+  &lt;p&gt;เนื้อหาของบทความ&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+  </section>
+
+  <!-- 33. Style Guide -->
+  <section id="style-guide">
+    <h2>Style Guide</h2>
+    <p>แนวทางในการเขียนโค้ดให้เป็นระเบียบ เช่น การย่อหน้าโค้ด (Indentation), ตั้งชื่อคลาส/ไอดีให้อ่านง่าย, จัดโครงสร้างไฟล์ เป็นต้น</p>
+    <pre><code>&lt;!-- ตัวอย่างโค้ดที่มีการย่อหน้าเป็นระเบียบ --&gt;
+&lt;div class="content"&gt;
+  &lt;p&gt;ข้อความ...&lt;/p&gt;
+  &lt;img src="image.jpg" alt="รูป"&gt;
+&lt;/div&gt;</code></pre>
+  </section>
+
+  <!-- 34. Entities -->
+  <section id="entities">
+    <h2>Entities</h2>
+    <p>HTML Entities ใช้แสดงอักขระพิเศษ เช่น <code>&amp;lt;</code> (&lt;), <code>&amp;gt;</code> (&gt;), <code>&amp;amp;</code> (&amp;)</p>
+    <pre><code>&lt;p&gt;เขียน &amp;lt;html&amp;gt; แทน &lt;html&gt; เพื่อไม่ให้แท็กทำงาน&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 35. Symbols -->
+  <section id="symbols">
+    <h2>Symbols</h2>
+    <p>การแสดงสัญลักษณ์พิเศษ เช่น ©, ®, ™ ผ่าน HTML Entities เช่น <code>&amp;copy;</code>, <code>&amp;reg;</code>, <code>&amp;trade;</code></p>
+    <pre><code>&lt;p&gt;สัญลักษณ์ลิขสิทธิ์: &amp;copy;&lt;/p&gt;
+&lt;p&gt;สัญลักษณ์การค้า: &amp;trade;&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 36. Emojis -->
+  <section id="emojis">
+    <h2>Emojis</h2>
+    <p>สามารถใส่อีโมจิในหน้า HTML ได้หากรองรับ Unicode เช่น <code>&amp;#128512;</code> หรือใส่ตรง ๆ (หาก Encoding เป็น UTF-8)</p>
+    <pre><code>&lt;p&gt;สวัสดีครับ &#128512;&lt;/p&gt;
+&lt;p&gt;หรือใส่ตรง: สวัสดีครับ 😀&lt;/p&gt;</code></pre>
+  </section>
+
+  <!-- 37. Charsets -->
+  <section id="charsets">
+    <h2>Charsets</h2>
+    <p>การกำหนดชุดอักขระ (Charset) เช่น <code>UTF-8</code> เพื่อรองรับภาษาต่าง ๆ และอีโมจิ</p>
+    <pre><code>&lt;meta charset="UTF-8"&gt;</code></pre>
+  </section>
+
+  <!-- 38. URL Encode -->
+  <section id="url-encode">
+    <h2>URL Encode</h2>
+    <p>การเข้ารหัสอักขระพิเศษใน URL เช่น การแทนเครื่องหมายวรรคตอนหรือช่องว่าง เพื่อให้ส่งผ่าน URL ได้อย่างถูกต้อง</p>
+    <pre><code>ตัวอย่างเช่น การแทนช่องว่างด้วย %20:
+https://www.example.com/search?q=hello%20world
+</code></pre>
   </section>
 
 </body>
