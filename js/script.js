@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 document.querySelectorAll('.member-card').forEach((card, index) => {
-    const images = ["1.png", "./img/ryu.png", "./img/byte.png"];
-    const hoverImages = ["./img/1671951579885.png", "./img/1671951652564.png", "./img/1671951672461.png"];
+    const images = ["./img/august.png", "./img/ryu.png", "./img/byte.png"];
+    const hoverImages = ["./img/august2.jpg", "./img/ryu2.jpg", "./img/byte2.jpg"];
 
     card.addEventListener('mouseover', function() {
         this.querySelector('.member-image').src = hoverImages[index];
