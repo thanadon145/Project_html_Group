@@ -193,27 +193,28 @@ h1 {
 }
 
 img {
+    max-width: 100%;
     width: 300px;
     height: auto;
   }
 
-  @media  (max-width: 768px) {
+  @media (max-width: 1024px) {
     img {
-        width: 300px;
-        height: auto;
+      width: 300px;
+      height: auto;
     }
   }
 
-  @media (max-width: 1024px) {
+  @media  (max-width: 768px) {
     img {
-      width: 200px;
-      height: auto;
+        width: 200px;
+        height: auto;
     }
   }
 
   @media (max-width: 480px) {
     img {
-      width: 100px;
+      width: 150px;
       height: auto;
     }
   }
