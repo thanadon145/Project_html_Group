@@ -200,11 +200,13 @@ img {
   @media (max-width: 768px) {
     img {
       width: 300px;
+      height: auto;
     }
   }
 
   @media (max-width: 480px) {
     img {
       width: 200px;
+      height: auto;
     }
   }
