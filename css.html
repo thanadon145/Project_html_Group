@@ -3,104 +3,724 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>คู่มือ CSS เบื้องต้น</title>
+  <title>CSS Tutorial</title>
   <style>
-    /* สไตล์สำหรับจัดรูปแบบเนื้อหาในคู่มือ */
-    body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
-    pre { background: #f4f4f4; padding: 10px; overflow-x: auto; }
-    code { font-family: Consolas, monospace; }
-    h2 { color: #333; border-bottom: 1px solid #ddd; padding-bottom: 5px; }
-    section { margin-bottom: 30px; }
-  </style>
-</head>
-<body>
-  <h1>คู่มือ CSS เบื้องต้น</h1>
+    /* รีเซ็ตค่าพื้นฐาน */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  <!-- 1. Selector พื้นฐาน -->
-  <section>
-    <h2>1. Selector พื้นฐาน</h2>
-    <p>Selectors ใช้เลือกองค์ประกอบที่ต้องการจัดสไตล์ เช่น Element, Class, ID, และ Grouping Selector</p>
+    /* สไตล์พื้นฐานของ body */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4; /* สีพื้นหลัง */
+    }
+
+    /* เฮดเดอร์ด้านบน */
+    header {
+      background-color: #2d3e50; 
+      color: #fff;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0; /* ลบ margin เริ่มต้นของ h1 */
+      font-size: 1.8rem;
+    }
+
+    /* คอนเทนเนอร์หลัก แบ่งเป็นส่วน sidebar และ content */
+    .container {
+      display: flex;       /* ใช้ Flex จัดวาง */
+      min-height: 100vh;   /* ความสูงอย่างน้อยเต็มหน้าจอ */
+    }
+
+    /* เมนูนำทาง (Sidebar) */
+    .sidebar {
+      width: 240px;               /* ปรับความกว้างตามต้องการ */
+      background-color: #fafafa;  /* สีพื้นหลังอ่อน ๆ */
+      border-right: 1px solid #ccc; /* เส้นแบ่งขอบขวา */
+      padding: 20px;
+    }
+    .sidebar h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: #333;
+    }
+    .sidebar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    .sidebar li {
+      margin-bottom: 5px;
+    }
+    .sidebar a {
+      display: block;            /* คลิกง่าย เต็มความกว้าง */
+      text-decoration: none;
+      color: #333;
+      padding: 8px 10px;
+      border-radius: 4px;
+    }
+    .sidebar a:hover {
+      background-color: #eee;    /* สีพื้นหลังเมื่อชี้เมาส์ */
+    }
+
+    /* ส่วนเนื้อหา (Content) */
+    .content {
+      flex: 1;                   /* ขยายเต็มพื้นที่ที่เหลือ */
+      padding: 20px;
+      background-color: #fff;    /* พื้นหลังขาว อ่านง่าย */
+    }
+    .content h2 {
+      margin-top: 0;             /* ให้หัวข้อชิดด้านบน */
+      color: #333;
+    }
+    .content p {
+      margin-bottom: 1rem;       /* เว้นช่องไฟระหว่างย่อหน้า */
+    }
+
+    /* สไตล์สำหรับตัวอย่างโค้ด */
+    pre {
+      background: #f9f9f9;
+      padding: 10px;
+      border: 1px solid #ccc;
+      overflow-x: auto;          /* ถ้ามีโค้ดยาว ให้มีแถบเลื่อนแนวนอน */
+      margin-bottom: 1rem;
+    }
+    code {
+      font-family: Consolas, monospace;
+      color: #d14;
+    }
+  </style>
+<header>
+  <h1>CSS Tutorial</h1>
+</header>
+
+<!-- คอนเทนเนอร์หลัก (Sidebar + Content) -->
+<div class="container">
+  
+  <!-- Sidebar (เมนูด้านซ้าย) -->
+  <nav class="sidebar">
+    <h2>เนื้อหา</h2>
+    <ul>
+    <li><a href="#css-home">CSS HOME</a></li>
+    <li><a href="#css-introduction">CSS Introduction</a></li>
+    <li><a href="#css-syntax">CSS Syntax</a></li>
+    <li><a href="#css-selectors">CSS Selectors</a></li>
+    <li><a href="#css-howto">CSS How To</a></li>
+    <li><a href="#css-comments">CSS Comments</a></li>
+    <li><a href="#css-colors">CSS Colors</a></li>
+    <li><a href="#backgrounds">Backgrounds</a></li>
+    <li><a href="#borders">Borders</a></li>
+    <li><a href="#margins">Margins</a></li>
+    <li><a href="#padding">Padding</a></li>
+    <li><a href="#heightwidth">Height/Width</a></li>
+    <li><a href="#box-model">Box Model</a></li>
+    <li><a href="#outline">Outline</a></li>
+    <li><a href="#text">Text</a></li>
+    <li><a href="#fonts">Fonts</a></li>
+    <li><a href="#icons">Icons</a></li>
+    <li><a href="#links">Links</a></li>
+    <li><a href="#lists">Lists</a></li>
+    <li><a href="#tables">Tables</a></li>
+    <li><a href="#display">Display</a></li>
+    <li><a href="#max-width">Max-width</a></li>
+    <li><a href="#position">Position</a></li>
+    <li><a href="#z-index">Z-index</a></li>
+    <li><a href="#overflow">Overflow</a></li>
+    <li><a href="#float">Float</a></li>
+    <li><a href="#inline-block">Inline-block</a></li>
+    <li><a href="#align">Align</a></li>
+    <li><a href="#combinators">Combinators</a></li>
+    <li><a href="#pseudo-class">Pseudo-class</a></li>
+    <li><a href="#pseudo-elements">Pseudo-elements</a></li>
+    <li><a href="#opacity">Opacity</a></li>
+    <li><a href="#navigation-bar">Navigation Bar</a></li>
+    <li><a href="#dropdowns">Dropdowns</a></li>
+    <li><a href="#image-gallery">Image Gallery</a></li>
+    <li><a href="#image-sprites">Image Sprites</a></li>
+    <li><a href="#attr-selectors">Attr Selectors</a></li>
+    <li><a href="#forms">Forms</a></li>
+    <li><a href="#counters">Counters</a></li>
+    <li><a href="#website-layout">Website Layout</a></li>
+    <li><a href="#units">Units</a></li>
+    <li><a href="#specificity">Specificity</a></li>
+    <li><a href="#important">!important</a></li>
+    <li><a href="#math-functions">Math Functions</a></li>
+  </ul>
+</nav>
+<!-- ส่วนเนื้อหาหลัก (Content) -->
+<div class="content">
+  <h1>CSS Tutorial</h1>
+
+  <!-- 1. CSS HOME -->
+  <section id="css-home">
+    <h2>CSS HOME</h2>
+    <p>CSS (Cascading Style Sheets) ใช้สำหรับกำหนดหน้าตาและการจัดวางขององค์ประกอบในหน้าเว็บ</p>
+    <pre><code>/* ตัวอย่างการกำหนดสีพื้นหลังและสีตัวอักษร */
+body {
+  background-color: #f0f0f0;
+  color: #333;
+}
+</code></pre>
+  </section>
+
+  <!-- 2. CSS Introduction -->
+  <section id="css-introduction">
+    <h2>CSS Introduction</h2>
+    <p>CSS แยกการจัดรูปแบบ (Presentation) ออกจากโครงสร้าง (Structure) ของเว็บ ทำให้แก้ไขดีไซน์ได้สะดวกและรวดเร็ว</p>
+    <pre><code>/* ตัวอย่างการเชื่อมต่อไฟล์ CSS ภายนอก */
+&lt;head&gt;
+  &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+</code></pre>
+  </section>
+
+  <!-- 3. CSS Syntax -->
+  <section id="css-syntax">
+    <h2>CSS Syntax</h2>
+    <p>ไวยากรณ์ CSS ประกอบด้วย <code>selector</code> ตามด้วย <code>{}</code> ที่ภายในระบุ <code>property: value;</code></p>
+    <pre><code>selector {
+  property: value;
+  property2: value2;
+}
+</code></pre>
+  </section>
+
+  <!-- 4. CSS Selectors -->
+  <section id="css-selectors">
+    <h2>CSS Selectors</h2>
+    <p>Selector ใช้เลือกองค์ประกอบที่ต้องการจัดสไตล์ เช่น <strong>Element Selector</strong>, <strong>Class Selector</strong>, <strong>ID Selector</strong></p>
     <pre><code>p {
-  color: blue;
+  color: blue; /* Element Selector */
 }
 .highlight {
-  background-color: yellow;
+  background-color: yellow; /* Class Selector */
 }
-#main-title {
-  font-size: 24px;
+#main {
+  font-size: 20px; /* ID Selector */
 }
-h1, h2 {
-  font-family: Arial, sans-serif;
-}</code></pre>
+</code></pre>
   </section>
 
-  <!-- 2. Box Model -->
-  <section>
-    <h2>2. Box Model</h2>
-    <p>Box Model คือแนวคิดการมององค์ประกอบเป็นกล่อง ซึ่งประกอบด้วย Content, Padding, Border และ Margin</p>
-    <pre><code>.box {
-  width: 150px;
-  height: 100px;
-  padding: 10px;
-  margin: 20px;
-  border: 2px solid black;
-  background-color: lightblue;
-}</code></pre>
+  <!-- 5. CSS How To -->
+  <section id="css-howto">
+    <h2>CSS How To</h2>
+    <p>การใส่ CSS ลงในหน้าเว็บมี 3 วิธีหลัก: Inline, Internal, External</p>
+    <pre><code>/* Inline Style */
+&lt;p style="color: red;"&gt;ข้อความสีแดง&lt;/p&gt;
+
+/* Internal Style (ภายใน &lt;style&gt; ในหน้า HTML) */
+&lt;style&gt;
+  p { color: green; }
+&lt;/style&gt;
+
+/* External Style (ไฟล์ .css ภายนอก) */
+&lt;link rel="stylesheet" href="styles.css"&gt;
+</code></pre>
   </section>
 
-  <!-- 3. การจัดวาง Layout (Flexbox และ Grid) -->
-  <section>
-    <h2>3. การจัดวาง Layout (Flexbox และ Grid)</h2>
-    <p>Flexbox ใช้สำหรับจัดเรียงองค์ประกอบในแนวเดียว (แนวนอนหรือแนวตั้ง) ส่วน Grid ใช้สำหรับจัดเรียงในรูปแบบแถวและคอลัมน์</p>
-    <h3>Flexbox</h3>
-    <pre><code>.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-}</code></pre>
-    <h3>Grid</h3>
-    <pre><code>.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-.grid-item {
-  background-color: #ccc;
-  padding: 20px;
-  text-align: center;
-}</code></pre>
-  </section>
-
-  <!-- 4. สีและพื้นหลัง -->
-  <section>
-    <h2>4. สีและพื้นหลัง</h2>
-    <p>กำหนดสีข้อความและพื้นหลังด้วย properties <code>color</code> และ <code>background-color</code></p>
-    <pre><code>body {
-  background-color: lightblue;
-}
+  <!-- 6. CSS Comments -->
+  <section id="css-comments">
+    <h2>CSS Comments</h2>
+    <p>การคอมเมนต์ใน CSS ใช้ <code>/* ... */</code> เพื่ออธิบายโค้ดหรือปิดบางส่วนไม่ให้ทำงาน</p>
+    <pre><code>/* นี่คือคอมเมนต์ */
 p {
-  color: #FF0000;
-  background-color: yellow;
-}</code></pre>
+  color: red; /* คอมเมนต์สั้นๆ */
+}
+</code></pre>
   </section>
 
-  <!-- 5. Typography (Fonts และ Text Alignment) -->
-  <section>
-    <h2>5. Typography (Fonts และ Text Alignment)</h2>
-    <p>ปรับแต่งรูปแบบตัวอักษรและการจัดแนวข้อความด้วย properties เช่น <code>font-family</code>, <code>font-size</code>, <code>font-weight</code>, <code>font-style</code>, และ <code>text-align</code></p>
+  <!-- 7. CSS Colors -->
+  <section id="css-colors">
+    <h2>CSS Colors</h2>
+    <p>การกำหนดสีใน CSS สามารถใช้ชื่อสี, รหัสสี Hex, หรือฟังก์ชัน RGB, HSL</p>
+    <pre><code>p {
+  color: #ff0000;     /* สีแดงด้วย Hex */
+  background-color: rgb(0, 255, 0); /* สีเขียวด้วย RGB */
+}
+</code></pre>
+  </section>
+
+  <!-- 8. Backgrounds -->
+  <section id="backgrounds">
+    <h2>Backgrounds</h2>
+    <p>คุณสมบัติ <code>background</code> เช่น <code>background-color</code>, <code>background-image</code>, <code>background-repeat</code></p>
+    <pre><code>body {
+  background-color: #fafafa;
+  background-image: url("bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</code></pre>
+  </section>
+
+  <!-- 9. Borders -->
+  <section id="borders">
+    <h2>Borders</h2>
+    <p>การกำหนดเส้นขอบขององค์ประกอบด้วย <code>border</code> (หนา, ชนิดเส้น, สี)</p>
+    <pre><code>div {
+  border: 2px solid red;
+}
+</code></pre>
+  </section>
+
+  <!-- 10. Margins -->
+  <section id="margins">
+    <h2>Margins</h2>
+    <p>กำหนดระยะห่างด้านนอกของกล่องด้วย <code>margin</code></p>
+    <pre><code>.box {
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+</code></pre>
+  </section>
+
+  <!-- 11. Padding -->
+  <section id="padding">
+    <h2>Padding</h2>
+    <p>กำหนดระยะห่างด้านในของกล่องด้วย <code>padding</code></p>
+    <pre><code>.box {
+  padding: 15px;
+}
+</code></pre>
+  </section>
+
+  <!-- 12. Height/Width -->
+  <section id="heightwidth">
+    <h2>Height/Width</h2>
+    <p>กำหนดความกว้างและความสูงขององค์ประกอบด้วย <code>width</code> และ <code>height</code></p>
+    <pre><code>img {
+  width: 200px;
+  height: auto; /* ปรับอัตโนมัติตามสัดส่วน */
+}
+</code></pre>
+  </section>
+
+  <!-- 13. Box Model -->
+  <section id="box-model">
+    <h2>Box Model</h2>
+    <p>ทุกองค์ประกอบใน CSS ถือเป็นกล่อง (Box) ที่ประกอบด้วย Content, Padding, Border, Margin</p>
+    <pre><code>.box {
+  width: 100px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 20px;
+}
+</code></pre>
+  </section>
+
+  <!-- 14. Outline -->
+  <section id="outline">
+    <h2>Outline</h2>
+    <p>คล้ายกับ border แต่ไม่กินพื้นที่ของกล่อง (วาดเส้นรอบนอก)</p>
+    <pre><code>div {
+  outline: 2px dashed blue;
+  outline-offset: 5px; /* ระยะห่างจากขอบกล่อง */
+}
+</code></pre>
+  </section>
+
+  <!-- 15. Text -->
+  <section id="text">
+    <h2>Text</h2>
+    <p>การจัดการข้อความด้วยคุณสมบัติ <code>color</code>, <code>text-align</code>, <code>text-decoration</code>, <code>text-transform</code> เป็นต้น</p>
+    <pre><code>p {
+  text-align: center;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+</code></pre>
+  </section>
+
+  <!-- 16. Fonts -->
+  <section id="fonts">
+    <h2>Fonts</h2>
+    <p>การกำหนดฟอนต์ เช่น <code>font-family</code>, <code>font-size</code>, <code>font-weight</code></p>
     <pre><code>h1 {
   font-family: Arial, sans-serif;
-  font-size: 32px;
-  text-align: center;
+  font-size: 2em;
   font-weight: bold;
 }
-p {
-  font-size: 16px;
-  font-style: italic;
-  text-align: justify;
-}</code></pre>
+</code></pre>
   </section>
 
+  <!-- 17. Icons -->
+  <section id="icons">
+    <h2>Icons</h2>
+    <p>สามารถใช้ Icon Font (เช่น Font Awesome) หรือใช้รูปภาพ/ไฟล์ SVG สำหรับแสดงไอคอน</p>
+    <pre><code>/* ตัวอย่างการใช้ Font Awesome */
+&lt;i class="fa fa-home"&gt;&lt;/i&gt; Home
+</code></pre>
+  </section>
+
+  <!-- 18. Links -->
+  <section id="links">
+    <h2>Links</h2>
+    <p>การกำหนดสไตล์ลิงก์ในสถานะต่าง ๆ เช่น <code>a:link</code>, <code>a:hover</code>, <code>a:visited</code>, <code>a:active</code></p>
+    <pre><code>a:link {
+  color: blue;
+}
+a:hover {
+  color: red;
+}
+</code></pre>
+  </section>
+
+  <!-- 19. Lists -->
+  <section id="lists">
+    <h2>Lists</h2>
+    <p>การปรับสไตล์รายการ เช่น การนำ bullet ออก หรือเปลี่ยนรูป bullet</p>
+    <pre><code>ul {
+  list-style-type: none; /* เอา bullet ออก */
+}
+li {
+  padding: 5px 0;
+}
+</code></pre>
+  </section>
+
+  <!-- 20. Tables -->
+  <section id="tables">
+    <h2>Tables</h2>
+    <p>การปรับสไตล์ตาราง เช่น <code>border-collapse</code>, <code>border-spacing</code>, <code>text-align</code></p>
+    <pre><code>table {
+  border-collapse: collapse;
+  width: 100%;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+</code></pre>
+  </section>
+
+  <!-- 21. Display -->
+  <section id="display">
+    <h2>Display</h2>
+    <p>กำหนดการแสดงผลขององค์ประกอบ เช่น <code>display: block;</code>, <code>inline;</code>, <code>inline-block;</code>, <code>flex;</code></p>
+    <pre><code>div {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+}
+</code></pre>
+  </section>
+
+  <!-- 22. Max-width -->
+  <section id="max-width">
+    <h2>Max-width</h2>
+    <p>จำกัดความกว้างสูงสุดขององค์ประกอบเพื่อให้ตอบสนอง (responsive) ได้ดีขึ้น</p>
+    <pre><code>img {
+  max-width: 100%;
+  height: auto;
+}
+</code></pre>
+  </section>
+
+  <!-- 23. Position -->
+  <section id="position">
+    <h2>Position</h2>
+    <p>กำหนดตำแหน่งขององค์ประกอบ เช่น <code>static</code>, <code>relative</code>, <code>absolute</code>, <code>fixed</code>, <code>sticky</code></p>
+    <pre><code>.box {
+  position: absolute;
+  top: 50px;
+  left: 100px;
+}
+</code></pre>
+  </section>
+
+  <!-- 24. Z-index -->
+  <section id="z-index">
+    <h2>Z-index</h2>
+    <p>ใช้กำหนดลำดับการซ้อนทับขององค์ประกอบที่ถูกจัดตำแหน่ง (positioned elements)</p>
+    <pre><code>.box1 {
+  z-index: 10;
+}
+.box2 {
+  z-index: 20; /* box2 จะอยู่บน box1 */
+}
+</code></pre>
+  </section>
+
+  <!-- 25. Overflow -->
+  <section id="overflow">
+    <h2>Overflow</h2>
+    <p>กำหนดว่าถ้าขนาดเนื้อหาล้นกล่อง ให้แสดงผลอย่างไร เช่น <code>visible</code>, <code>hidden</code>, <code>scroll</code>, <code>auto</code></p>
+    <pre><code>.container {
+  width: 200px;
+  height: 100px;
+  overflow: auto;
+}
+</code></pre>
+  </section>
+
+  <!-- 26. Float -->
+  <section id="float">
+    <h2>Float</h2>
+    <p>ใช้จัดองค์ประกอบให้ชิดซ้ายหรือขวา เพื่อวางภาพหรือกล่องขนานกับข้อความ</p>
+    <pre><code>img {
+  float: left;
+  margin-right: 10px;
+}
+</code></pre>
+  </section>
+
+  <!-- 27. Inline-block -->
+  <section id="inline-block">
+    <h2>Inline-block</h2>
+    <p>การจัดแสดงองค์ประกอบแบบ inline-block ช่วยให้กำหนดขนาดได้ แต่ยังแสดงผลเรียงต่อกันในบรรทัด</p>
+    <pre><code>.item {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  background-color: #ccc;
+}
+</code></pre>
+  </section>
+
+  <!-- 28. Align -->
+  <section id="align">
+    <h2>Align</h2>
+    <p>การจัดตำแหน่งข้อความหรือองค์ประกอบ เช่น <code>text-align</code> (จัดข้อความ), <code>vertical-align</code> (จัดแนวตั้ง)</p>
+    <pre><code>p {
+  text-align: center;
+}
+span {
+  vertical-align: middle;
+}
+</code></pre>
+  </section>
+
+  <!-- 29. Combinators -->
+  <section id="combinators">
+    <h2>Combinators</h2>
+    <p>ตัวเลือกที่ใช้ความสัมพันธ์ระหว่างองค์ประกอบ เช่น Descendant (space), Child (<code>&gt;</code>), Sibling (<code>+</code>, <code>~</code>)</p>
+    <pre><code>/* Descendant selector */
+div p {
+  color: blue;
+}
+
+/* Child selector */
+div &gt; p {
+  color: red;
+}
+</code></pre>
+  </section>
+
+  <!-- 30. Pseudo-class -->
+  <section id="pseudo-class">
+    <h2>Pseudo-class</h2>
+    <p>ใช้เลือกสถานะพิเศษขององค์ประกอบ เช่น <code>:hover</code>, <code>:focus</code>, <code>:active</code></p>
+    <pre><code>a:hover {
+  color: orange;
+}
+input:focus {
+  border-color: blue;
+}
+</code></pre>
+  </section>
+
+  <!-- 31. Pseudo-elements -->
+  <section id="pseudo-elements">
+    <h2>Pseudo-elements</h2>
+    <p>สร้างหรือเลือกส่วนหนึ่งขององค์ประกอบ เช่น <code>::before</code>, <code>::after</code>, <code>::first-line</code></p>
+    <pre><code>p::first-line {
+  font-weight: bold;
+  color: red;
+}
+p::after {
+  content: " (จบ)";
+}
+</code></pre>
+  </section>
+
+  <!-- 32. Opacity -->
+  <section id="opacity">
+    <h2>Opacity</h2>
+    <p>กำหนดความโปร่งใสขององค์ประกอบ ค่า 0 = โปร่งใสหมด, 1 = ทึบสนิท</p>
+    <pre><code>.overlay {
+  opacity: 0.5;
+}
+</code></pre>
+  </section>
+
+  <!-- 33. Navigation Bar -->
+  <section id="navigation-bar">
+    <h2>Navigation Bar</h2>
+    <p>การสร้างเมนูนำทาง (Navbar) ด้วย <code>ul</code>, <code>li</code> และสไตล์ เช่น <code>float</code> หรือ <code>flex</code></p>
+    <pre><code>nav ul {
+  list-style-type: none;
+  display: flex;
+  background: #333;
+}
+nav li {
+  margin-right: 15px;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+</code></pre>
+  </section>
+
+  <!-- 34. Dropdowns -->
+  <section id="dropdowns">
+    <h2>Dropdowns</h2>
+    <p>เมนูแบบเลื่อนลง (Dropdown) สามารถใช้ <code>:hover</code> หรือ JavaScript เพื่อควบคุมการแสดงผล</p>
+    <pre><code>.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background: #fff;
+}
+</code></pre>
+  </section>
+
+  <!-- 35. Image Gallery -->
+  <section id="image-gallery">
+    <h2>Image Gallery</h2>
+    <p>จัดรูปภาพเป็นแกลเลอรี อาจใช้ <code>float</code> หรือ <code>flex</code> หรือ <code>grid</code></p>
+    <pre><code>.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery img {
+  width: 200px;
+  margin: 5px;
+}
+</code></pre>
+  </section>
+
+  <!-- 36. Image Sprites -->
+  <section id="image-sprites">
+    <h2>Image Sprites</h2>
+    <p>รวมรูปภาพหลาย ๆ รูปไว้ในไฟล์เดียว แล้วใช้ <code>background-position</code> เพื่อแสดงเฉพาะส่วนที่ต้องการ</p>
+    <pre><code>.icon {
+  width: 32px; height: 32px;
+  background: url("icons-sprite.png") no-repeat;
+}
+.icon-home {
+  background-position: 0 0;
+}
+.icon-mail {
+  background-position: -32px 0;
+}
+</code></pre>
+  </section>
+
+  <!-- 37. Attr Selectors -->
+  <section id="attr-selectors">
+    <h2>Attr Selectors</h2>
+    <p>เลือกองค์ประกอบโดยดูจากค่า Attribute เช่น <code>[type="text"]</code>, <code>[href^="https"]</code>, <code>[class~="highlight"]</code></p>
+    <pre><code>input[type="text"] {
+  border: 1px solid #ccc;
+}
+a[href^="https"] {
+  color: green;
+}
+</code></pre>
+  </section>
+
+  <!-- 38. Forms -->
+  <section id="forms">
+    <h2>Forms</h2>
+    <p>ปรับสไตล์ฟอร์ม เช่น <code>input</code>, <code>textarea</code>, <code>button</code>, ระยะห่าง และการจัดวาง</p>
+    <pre><code>form {
+  width: 300px;
+  margin: 0 auto;
+}
+input, textarea {
+  width: 100%;
+  margin-bottom: 10px;
+}
+</code></pre>
+  </section>
+
+  <!-- 39. Counters -->
+  <section id="counters">
+    <h2>Counters</h2>
+    <p>CSS Counters ใช้นับและแสดงตัวเลขอัตโนมัติในรายการหรือส่วนต่าง ๆ ของเนื้อหา</p>
+    <pre><code>ol {
+  counter-reset: section;
+}
+li {
+  counter-increment: section;
+}
+li::before {
+  content: counter(section) ". ";
+}
+</code></pre>
+  </section>
+
+  <!-- 40. Website Layout -->
+  <section id="website-layout">
+    <h2>Website Layout</h2>
+    <p>การจัดโครงร่างเว็บ (Layout) นิยมใช้ <code>flexbox</code> หรือ <code>grid</code> ช่วยให้จัดวางองค์ประกอบได้สะดวก</p>
+    <pre><code>.container {
+  display: flex;
+}
+.sidebar {
+  width: 200px;
+}
+.content {
+  flex: 1;
+}
+</code></pre>
+  </section>
+
+  <!-- 41. Units -->
+  <section id="units">
+    <h2>Units</h2>
+    <p>หน่วยที่ใช้ใน CSS เช่น <code>px</code>, <code>em</code>, <code>rem</code>, <code>%</code>, <code>vw</code>, <code>vh</code></p>
+    <pre><code>p {
+  font-size: 16px; /* px */
+}
+.container {
+  width: 80%; /* % */
+}
+</code></pre>
+  </section>
+
+  <!-- 42. Specificity -->
+  <section id="specificity">
+    <h2>Specificity</h2>
+    <p>ความสำคัญของ Selector ในการตัดสินว่า CSS ตัวไหนมีผล เช่น Inline &gt; ID &gt; Class &gt; Element</p>
+    <pre><code>/* ตัวอย่าง */
+#box { color: red; }     /* ID */
+.box { color: blue; }    /* Class */
+div { color: green; }    /* Element */
+
+/* #box ชนะ .box และ div */
+</code></pre>
+  </section>
+
+  <!-- 43. !important -->
+  <section id="important">
+    <h2>!important</h2>
+    <p>ใช้ในกรณีต้องการให้ property นั้นมีความสำคัญสูงสุด แต่ควรใช้อย่างระมัดระวัง</p>
+    <pre><code>p {
+  color: blue !important;
+}
+</code></pre>
+  </section>
+
+  <!-- 44. Math Functions -->
+  <section id="math-functions">
+    <h2>Math Functions</h2>
+    <p>CSS มีฟังก์ชันคำนวณ เช่น <code>calc()</code>, <code>min()</code>, <code>max()</code>, <code>clamp()</code> เพื่อช่วยปรับขนาด/ระยะห่างตามเงื่อนไข</p>
+    <pre><code>.box {
+  width: calc(100% - 50px);
+  font-size: clamp(16px, 2vw, 24px);
+}
+</code></pre>
+  </section>
+</div>
+</div>
 </body>
 </html>

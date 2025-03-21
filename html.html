@@ -5,42 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML Tutorial</title>
   <style>
-    /* สไตล์พื้นฐานสำหรับการแสดงผล */
+    /* รีเซ็ตค่าพื้นฐาน */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* สไตล์พื้นฐานของ body */
     body {
       font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 0;
+      background-color: #f4f4f4; /* สีพื้นหลัง */
+    }
+
+    /* เฮดเดอร์ด้านบน */
+    header {
+      background-color: #2d3e50; 
+      color: #fff;
       padding: 20px;
     }
-    nav {
-      background: #2d3e50;
-      padding: 10px;
-      margin-bottom: 20px;
+    header h1 {
+      margin: 0; /* ลบ margin เริ่มต้นของ h1 */
+      font-size: 1.8rem;
     }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-right: 15px;
+
+    /* คอนเทนเนอร์หลัก แบ่งเป็นส่วน sidebar และ content */
+    .container {
+      display: flex;       /* ใช้ Flex จัดวาง */
+      min-height: 100vh;   /* ความสูงอย่างน้อยเต็มหน้าจอ */
     }
-    nav a:hover {
-      text-decoration: underline;
+
+    /* เมนูนำทาง (Sidebar) */
+    .sidebar {
+      width: 240px;               /* ปรับความกว้างตามต้องการ */
+      background-color: #fafafa;  /* สีพื้นหลังอ่อน ๆ */
+      border-right: 1px solid #ccc; /* เส้นแบ่งขอบขวา */
+      padding: 20px;
     }
-    h1 {
+    .sidebar h2 {
       margin-top: 0;
-    }
-    section {
-      margin-bottom: 30px;
-    }
-    h2 {
+      font-size: 1.2rem;
       color: #333;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
     }
+    .sidebar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    .sidebar li {
+      margin-bottom: 5px;
+    }
+    .sidebar a {
+      display: block;            /* คลิกง่าย เต็มความกว้าง */
+      text-decoration: none;
+      color: #333;
+      padding: 8px 10px;
+      border-radius: 4px;
+    }
+    .sidebar a:hover {
+      background-color: #eee;    /* สีพื้นหลังเมื่อชี้เมาส์ */
+    }
+
+    /* ส่วนเนื้อหา (Content) */
+    .content {
+      flex: 1;                   /* ขยายเต็มพื้นที่ที่เหลือ */
+      padding: 20px;
+      background-color: #fff;    /* พื้นหลังขาว อ่านง่าย */
+    }
+    .content h2 {
+      margin-top: 0;             /* ให้หัวข้อชิดด้านบน */
+      color: #333;
+    }
+    .content p {
+      margin-bottom: 1rem;       /* เว้นช่องไฟระหว่างย่อหน้า */
+    }
+
+    /* สไตล์สำหรับตัวอย่างโค้ด */
     pre {
-      background: #f4f4f4;
+      background: #f9f9f9;
       padding: 10px;
-      overflow-x: auto;
-      margin-top: 10px;
+      border: 1px solid #ccc;
+      overflow-x: auto;          /* ถ้ามีโค้ดยาว ให้มีแถบเลื่อนแนวนอน */
+      margin-bottom: 1rem;
     }
     code {
       font-family: Consolas, monospace;
@@ -50,47 +96,60 @@
 </head>
 <body>
 
-  <!-- แถบนำทาง -->
-  <nav>
-    <a href="#home">HOME</a>
-    <a href="#introduction">Introduction</a>
-    <a href="#editors">Editors</a>
-    <a href="#basic">Basic</a>
-    <a href="#elements">Elements</a>
-    <a href="#attributes">Attributes</a>
-    <a href="#headings">Headings</a>
-    <a href="#paragraphs">Paragraphs</a>
-    <a href="#styles">Styles</a>
-    <a href="#formatting">Formatting</a>
-    <a href="#quotation">Quotation</a>
-    <a href="#comments">Comments</a>
-    <a href="#colors">Colors</a>
-    <a href="#fonts">HTML Fonts</a>
-    <a href="#links">Links</a>
-    <a href="#images">Images</a>
-    <a href="#favicon">Favicon</a>
-    <a href="#page-title">Page Title</a>
-    <a href="#tables-inline">Tables & Inline</a>
-    <a href="#lists">Lists</a>
-    <a href="#block-inline">Block & Inline</a>
-    <a href="#div">Div</a>
-    <a href="#classes">Classes</a>
-    <a href="#id">Id</a>
-    <a href="#iframes">Iframes</a>
-    <a href="#javascript">JavaScript</a>
-    <a href="#file-paths">File Paths</a>
-    <a href="#head">Head</a>
-    <a href="#layout">Layout</a>
-    <a href="#responsive">Responsive</a>
-    <a href="#computercode">ComputerCode</a>
-    <a href="#semantics">Semantics</a>
-    <a href="#style-guide">Style Guide</a>
-    <a href="#entities">Entities</a>
-    <a href="#symbols">Symbols</a>
-    <a href="#emojis">Emojis</a>
-    <a href="#charsets">Charsets</a>
-    <a href="#url-encode">URL Encode</a>
+  <!-- เฮดเดอร์ด้านบน -->
+  <header>
+    <h1>HTML Tutorial</h1>
+  </header>
+
+  <!-- คอนเทนเนอร์หลัก (Sidebar + Content) -->
+  <div class="container">
+    
+    <!-- Sidebar (เมนูด้านซ้าย) -->
+    <nav class="sidebar">
+    <h2>เนื้อหา</h2>
+    <ul>
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#editors">Editors</a></li>
+      <li><a href="#basic">Basic</a></li>
+      <li><a href="#elements">Elements</a></li>
+      <li><a href="#attributes">Attributes</a></li>
+      <li><a href="#headings">Headings</a></li>
+      <li><a href="#paragraphs">Paragraphs</a></li>
+      <li><a href="#styles">Styles</a></li>
+      <li><a href="#formatting">Formatting</a></li>
+      <li><a href="#quotation">Quotation</a></li>
+      <li><a href="#comments">Comments</a></li>
+      <li><a href="#colors">Colors</a></li>
+      <li><a href="#fonts">HTML Fonts</a></li>
+      <li><a href="#links">Links</a></li>
+      <li><a href="#images">Images</a></li>
+      <li><a href="#favicon">Favicon</a></li>
+      <li><a href="#page-title">Page Title</a></li>
+      <li><a href="#tables-inline">Tables & Inline</a></li>
+      <li><a href="#lists">Lists</a></li>
+      <li><a href="#block-inline">Block & Inline</a></li>
+      <li><a href="#div">Div</a></li>
+      <li><a href="#classes">Classes</a></li>
+      <li><a href="#id">Id</a></li>
+      <li><a href="#iframes">Iframes</a></li>
+      <li><a href="#javascript">JavaScript</a></li>
+      <li><a href="#file-paths">File Paths</a></li>
+      <li><a href="#head">Head</a></li>
+      <li><a href="#layout">Layout</a></li>
+      <li><a href="#responsive">Responsive</a></li>
+      <li><a href="#computercode">ComputerCode</a></li>
+      <li><a href="#semantics">Semantics</a></li>
+      <li><a href="#style-guide">Style Guide</a></li>
+      <li><a href="#entities">Entities</a></li>
+      <li><a href="#symbols">Symbols</a></li>
+      <li><a href="#emojis">Emojis</a></li>
+      <li><a href="#charsets">Charsets</a></li>
+      <li><a href="#url-encode">URL Encode</a></li>
+    </ul>
   </nav>
+ <!-- ส่วนเนื้อหาด้านขวา -->
+ <div class="content">
 
   <h1>HTML Tutorial</h1>
 
@@ -484,6 +543,9 @@ function greet() {
 https://www.example.com/search?q=hello%20world
 </code></pre>
   </section>
+</div>
+    
+</div>
 
 </body>
 </html>
